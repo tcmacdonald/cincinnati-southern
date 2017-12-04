@@ -9,6 +9,7 @@ require 'capybara/poltergeist'
 require 'database_cleaner'
 require 'factory_girl'
 require 'shoulda/matchers'
+require 'lorem'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
