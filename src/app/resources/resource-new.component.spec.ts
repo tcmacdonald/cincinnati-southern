@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing'
+import { FormsModule }   from '@angular/forms';
+import { ResourceService } from './resource.service';
 import { ResourceNewComponent } from './resource-new.component';
+import { Resource } from 'app/resources/resource';
 
 describe('ResourceNewComponent', () => {
   let component: ResourceNewComponent;
@@ -8,7 +12,17 @@ describe('ResourceNewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResourceNewComponent ]
+      declarations: [
+        ResourceNewComponent
+      ],
+      providers: [
+        ResourceService
+      ],
+      imports: [
+        FormsModule,
+        HttpModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));

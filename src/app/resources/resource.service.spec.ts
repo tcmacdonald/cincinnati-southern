@@ -1,11 +1,19 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing'
 import { ResourceService } from './resource.service';
 
 describe('ResourceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ResourceService]
+      providers: [
+        ResourceService
+      ],
+      imports: [
+        HttpModule,
+        RouterTestingModule
+      ]
     });
   });
 
