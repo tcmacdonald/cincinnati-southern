@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Router, RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from '@angular/forms';
-import { JsonApiModule } from 'angular2-jsonapi';
+import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
 import { ResourceService } from './resources/resource.service';
 import { ResourceListComponent } from './resources/resource-list.component';
 import { ResourceShowComponent } from './resources/resource-show.component';
+import { ResourceNewComponent } from './resources/resource-new.component';
 
 // import { ResourceComponent } from './components/resource/resource.component';
 // import { Datastore } from './services/datastore.service';
@@ -18,12 +18,14 @@ import { ResourceShowComponent } from './resources/resource-show.component';
   declarations: [
     AppComponent,
     ResourceListComponent,
-    ResourceShowComponent
+    ResourceShowComponent,
+    ResourceNewComponent
   ],
   imports: [
     HttpModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   exports: [
     RouterModule

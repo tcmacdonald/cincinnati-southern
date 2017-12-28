@@ -1,9 +1,10 @@
 <div *ngIf="resource">
   <div class="page-header">
-    <h1>Editing Resource #{{resource.id}}</h1>
+      <a routerLink="/resources" class="btn btn-link pull-right">
+        <i class="fas fa-angle-double-left"></i>&nbsp;
+        Show All Resources
+      </a>
+      <h1>Resource #{{resource.id}}</h1>
   </div>
-
   <pre>{{resource.properties | json}}</pre>
-
-
 </div>

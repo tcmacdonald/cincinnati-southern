@@ -1,0 +1,20 @@
+<div class="page-header">
+    <a routerLink="/resources" class="btn btn-link pull-right">
+      <i class="fas fa-angle-double-left"></i>&nbsp;
+      Show All Resources
+    </a>
+  <h1>Add New Resource</h1>
+</div>
+
+<div [hidden]="!submitted" class="alert alert-success" role="alert">
+  Your resource has been successfully created.
+</div>
+
+<form (ngSubmit)="createResource(resource); resourceForm.reset()" #resourceForm='ngForm'>
+  <div class="form-group">
+    <label for="resource-title">Title</label>
+    <input type="text" class="form-control" id="title" required name="title" #title='ngModel' [(ngModel)]='resource.title'>
+    <div [hidden]="title.valid ||   title.pristine" class="alert alert-danger">Field is required</div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!resourceForm.form.valid" [hidden]="submitted">Create Resource</button>
+</form>

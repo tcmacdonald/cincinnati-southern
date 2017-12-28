@@ -41,6 +41,7 @@ export class ResourceService implements OnInit {
 
   createResource(resource: Resource): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json'});
+    this.createAuthorizationHeader(headers);
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.resourcesUrl, JSON.stringify(resource), options);
   }
