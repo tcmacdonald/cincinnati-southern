@@ -18,6 +18,15 @@
       <input type="text" class="form-control" id="title" required name="title" #title='ngModel' [(ngModel)]='resource.title'>
       <div [hidden]="title.valid ||   title.pristine" class="alert alert-danger">Field is required</div>
     </div>
+
+    <div class="form-group">
+      <label for="resource-title">Template</label>
+      <input type="text" class="form-control" id="template_filename" required name="template_filename" #template_filename='ngModel' [(ngModel)]='resource.template_filename'>
+      <div [hidden]="template_filename.valid || template_filename.pristine" class="alert alert-danger">Field is required</div>
+    </div>
+
+    <br><hr>
     <button type="submit" (click)="update(resource)" class="btn btn-primary" [disabled]="!resourceForm.form.valid">Update Resource</button>
+    <a routerLink="/resources" class="btn btn-link">Cancel</a>
   </form>
 </div>
