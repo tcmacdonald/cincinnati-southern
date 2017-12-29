@@ -12,7 +12,13 @@
   <th>Created At</th>
   <tr *ngFor="let resource of resources">
     <td>{{resource.id}}</td>
-    <td><a [routerLink]="[1]">{{resource.title}}</a></td>
+    <td><a [routerLink]="[resource.id]">{{resource.title}}</a></td>
     <td>{{resource.created_at | date}}</td>
+    <td>
+      <a href="#" (click)="delete(resource)">
+        <i class="fas fa-trash-alt"></i>&nbsp;
+        Delete
+      </a>
+    </td>
   </tr>
 </table>

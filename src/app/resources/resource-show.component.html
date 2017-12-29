@@ -6,5 +6,18 @@
       </a>
       <h1>Resource #{{resource.id}}</h1>
   </div>
-  <pre>{{resource.properties | json}}</pre>
+  <!-- <pre>{{resource.properties | json}}</pre> -->
+
+  <div [hidden]="!submitted" class="alert alert-success" role="alert">
+    Your resource has been updated successfully.
+  </div>
+
+  <form #resourceForm='ngForm'>
+    <div class="form-group">
+      <label for="resource-title">Title</label>
+      <input type="text" class="form-control" id="title" required name="title" #title='ngModel' [(ngModel)]='resource.title'>
+      <div [hidden]="title.valid ||   title.pristine" class="alert alert-danger">Field is required</div>
+    </div>
+    <button type="submit" (click)="update(resource)" class="btn btn-primary" [disabled]="!resourceForm.form.valid">Update Resource</button>
+  </form>
 </div>
