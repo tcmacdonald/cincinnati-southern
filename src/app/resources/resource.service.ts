@@ -60,7 +60,7 @@ export class ResourceService implements OnInit {
 
   updateResource(resource: Resource): Observable<Resource> {
     const url = `${this.resourcesUrl}/${resource.id}`;
-    return this.http.put(url, JSON.stringify(resource),
+    return this.http.put(url, { resource: resource },
             this.options).map((res: Response) => res.json())
                           .catch(this.handleError);
   }

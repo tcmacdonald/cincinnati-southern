@@ -38,7 +38,9 @@ export class ResourceShowComponent implements OnInit {
   }
 
   loadResource() {
-    this.resourceService.getResource(this.id).subscribe((resource: Resource) => this.resource = resource);
+    this.resourceService.getResource(this.id).subscribe((resource: Resource) =>{
+      this.resource = resource;
+    });
   }
 
   update(resource: Resource) {
