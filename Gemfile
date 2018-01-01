@@ -10,6 +10,7 @@ gem 'puma', '~> 3.7'
 gem 'mongoid', '~> 6.1.0'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
+gem 'babosa'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

@@ -1,4 +1,5 @@
 class Resource
+
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
 
@@ -7,6 +8,10 @@ class Resource
 
   validates :title, presence: true
   validates :permalink, presence: true, uniqueness: true
+
+  before_validation do
+    self.permalink = self.title.to_slug.normalize.to_s if self.permalink.nil?
+  end
 
   def dynamic_attributes
     attributes.keys
