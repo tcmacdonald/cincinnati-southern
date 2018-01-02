@@ -9,12 +9,10 @@
 <table class="table table-striped">
   <th>ID</th>
   <th>Title</th>
-  <th>Created At</th>
   <th style="width: 200px">Actions</th>
   <tr *ngFor="let resource of resources">
     <td>{{resource.id}}</td>
     <td><a [routerLink]="[resource.id]">{{resource.title}}</a></td>
-    <td>{{resource.created_at | date}}</td>
     <td>
       <a [routerLink]="[resource.id]">
         <i class="fas fa-edit"></i>&nbsp;

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { Resource } from "./resource";
 import { ResourceService } from './resource.service';
 import { environment } from '../../environments/environment';
+import { Property } from '../property/property';
 import * as _ from 'lodash';
 
 @Component({
@@ -15,12 +16,14 @@ import * as _ from 'lodash';
 export class ResourceShowComponent implements OnInit {
   id: string;
   resource: Resource;
+  newProperty: Property;
   resourceForm: FormGroup;
   resourceProperties: Array<any> = [];
   errorMessage: any;
   returnUrl: string = '/resources';
   editBtnClicked: boolean = false;
   submitted: boolean = false;
+  debug: boolean = false;
 
   constructor(
     private http: Http,
@@ -55,5 +58,10 @@ export class ResourceShowComponent implements OnInit {
             console.log("Error Editing Resource");
             return Observable.throw(error);
           });
+  }
+
+  addProperty(type, label) {
+    let property = new Property(type, label);
+    this.resource.properties_attributes.push(property);
   }
 }

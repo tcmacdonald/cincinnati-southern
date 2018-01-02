@@ -22,7 +22,7 @@ export class PropertyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.property = this.resource.properties[this.id];
+    this.property = this.resource.properties_attributes[this.id];
     this.prop[this.id] = this.property[this.id];
   }
 

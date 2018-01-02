@@ -19,13 +19,35 @@
     </div>
 
     <div *ngFor="let property of resource.properties_attributes">
+      <pre *ngIf="debug">{{ property.value | json }}</pre>
       <div class="form-group">
         <label *ngIf="property.label" for="resource-title">{{property.label}}</label>
-        <input *ngIf="property.type == 'string'" type="text" class="form-control" required name="{{property}}" #{{property}}='ngModel' [(ngModel)]='property.value'>
+        <input *ngIf="property.type == 'string'" type="text" class="form-control" required name="{{property.label}}" #{{property.label}}='ngModel' [(ngModel)]='property.value'>
+        <textarea *ngIf="property.type == 'text'" name="{{property.label}}" #{{property.label}}='ngModel' [(ngModel)]='property.value' class="form-control" rows="3"></textarea>
       </div>
     </div>
 
-    <pre>{{resource | json}}</pre>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">Add New Property</div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label>Label:</label>
+          <input type="text" class="form-control" #propertyLabel />
+        </div>
+        <div class="form-group">
+          <label>Type: </label>
+          <select class="form-control" #propertyType>
+            <option>-- Select an Option --</option>
+            <option value="string">Input Field</option>
+            <option value="text">Text Area</option>
+          </select>
+        </div>
+        <button (click)="addProperty(propertyType.value, propertyLabel.value)" class="btn btn-default">Add</button>
+      </div>
+    </div>
+
+    <pre *ngIf="debug">{{resource | json}}</pre>
     <br><hr>
     <button type="submit" (click)="update(resource)" class="btn btn-primary" [disabled]="!resourceForm.form.valid">Update Resource</button>
     <a routerLink="/resources" class="btn btn-link">Cancel</a>

@@ -1,6 +1,7 @@
 export class Property {
   constructor(
-    public id?: number,
-    public title?: string
+    public type?: string,
+    public label?: string,
+    public value?: string
   ) {}
 }
