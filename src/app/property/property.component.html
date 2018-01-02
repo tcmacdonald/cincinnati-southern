@@ -1,0 +1,4 @@
+<div class="form-group">
+  <label for="resource-title">{{ id }}</label>
+  <input type="text" class="form-control" id="{{ id }}" required name="{{ id }}" [(ngModel)]="prop[id]" (ngModelChange)="onChange($event)">
+</div>

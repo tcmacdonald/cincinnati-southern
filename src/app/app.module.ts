@@ -10,16 +10,15 @@ import { ResourceService } from './resources/resource.service';
 import { ResourceListComponent } from './resources/resource-list.component';
 import { ResourceShowComponent } from './resources/resource-show.component';
 import { ResourceNewComponent } from './resources/resource-new.component';
-
-// import { ResourceComponent } from './components/resource/resource.component';
-// import { Datastore } from './services/datastore.service';
+import { PropertyComponent } from './property/property.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResourceListComponent,
     ResourceShowComponent,
-    ResourceNewComponent
+    ResourceNewComponent,
+    PropertyComponent
   ],
   imports: [
     HttpModule,

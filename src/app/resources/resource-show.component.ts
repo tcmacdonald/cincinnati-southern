@@ -39,6 +39,9 @@ export class ResourceShowComponent implements OnInit {
 
   loadResource() {
     this.resourceService.getResource(this.id).subscribe((resource: Resource) =>{
+      this.resourceProperties = _.filter(Object.keys(resource), (k) => {
+        return ! _.includes(['id', 'title'], k);
+      });
       this.resource = resource;
     });
   }
